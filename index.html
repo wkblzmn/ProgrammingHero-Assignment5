@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ticketing Website</title>
+    <!-- daisyui & css -->
+    <link rel="stylesheet" href="./style/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+<body>
+    <header>
+        <nav class="grid">
+            <div class="flex justify-between items-center mb-14 mt-5">
+                <div>
+                  <a class="btn raleway font-extrabold text-4xl">P-Ticket</a>
+                </div>
+                <div class="flex gap-8">
+                    <a href="http://" class="text-xl font-medium">Home</a>
+                    <a href="http://" class="text-xl font-medium">About</a>
+                    <a href="http://" class="text-xl font-medium">Destination</a>
+                    <a href="http://" class="text-xl font-medium">Search</a>
+                </div>
+                <div>
+                  <button class="btn grid grid-cols-2 bg-[#1DD1001A]">
+                    <div class="text-[#1DD100] text-xl">Bus</div>
+                     <div><img src="./images/bus-icon.svg" ></div>
+                  </button>
+                </div>
+              </div>
+        </nav>
+        <!-- Hero Section -->
+        <section>
+            <div class="hero min-h-screen" style="background-image: url(./images/banner.png);">
+                <div class="hero-overlay bg-opacity-60"></div>
+                <div class="hero-content text-center text-neutral-content">
+                  <div class="max-w-md">
+                    <h1 class="mb-5 text-7xl font-bold">End-to-End Travel with <br><span class="text-[#1DD100]">P Paribahan</span></h1>
+                    <p class="mb-5">Yes, you can run unit tests and view the results directly within the app. The integrated testing features allow for a streamlined .</p>
+                    <a role="button" class="btn bg-[#1DD100]" href="#ticketing-section">Buy Tickets</a>
+                  </div>
+                </div>
+              </div>
+        </section>
+    </header>
+    <main>
+        <!-- offer section -->
+        <section class="mt-40 mb-40 grid justify-center text-center gap-20">
+            <h1 class="text-5xl font-bold raleway">Best  offers for you</h1>
+            <div class="flex gap-10">
+                <img src="./images/NEW15.svg" alt="" class="w-full">
+                <img src="./images/Couple 20.svg" alt="" class="w-full">
+            </div>
+            <div>
+                <button class="btn btn-outline btn-success w-48">See All Offers</button>
+            </div>
+        </section>
+
+        <!-- ticketing section -->
+        <section id="ticketing-section" class="min-h-screen bg-no-repeat" style="background-image: url(./images/ticketing-section.svg); background-size: cover;">
+            <!-- text section -->
+            <div class="ticketing-header text-center pt-28">
+                <h1 class="text-4xl font-bold raleway">P.H Paribahan</h1>
+                <p class="mt-8 text-xl inter">Yes, you can run unit tests and view the results directly within the app. The integrated <br>testing features allow for a streamlined .</p>
+            </div>
+
+            <!-- ticket price and destination section -->
+            <div style="background-image: url('./images/ticket-price.svg')" class="bg-no-repeat bg-center min-h-[420px] mt-20">
+                <button class="btn ml-[55%] mt-[50px]" id="remainingSeats"><span>8</span> Seats left</button>
+            </div>
+
+            <!-- seat selection and calculation -->
+            <div class="bg-white rounded-lg mt-20 p-16 flex justify-center gap-20">
+                <!-- select seat -->
+                <div>
+                    <h1 class="text-2xl font-semibold">Select Your Seat</h1>
+                    <img src="./images/avail-notAvail-seats.svg" alt="">
+                    <div class="flex justify-end mt-10"><img src="./images/driver.svg" alt=""></div>
+                    <div class="flex justify-between mt-10">
+                        <div class="grid grid-cols-1 gap-5">
+                            <div class="flex gap-10">
+                                <input id="myCheckbox1" type="checkbox" aria-label="A1" class="seat-checkbox btn px-10 py-5" />
+                                <input id="myCheckbox2" type="checkbox" aria-label="A2" class="seat-checkbox btn px-10 py-5" />
+                            </div>
+                            <div class="flex gap-10">
+                                <input id="myCheckbox5" type="checkbox" aria-label="B1" class="seat-checkbox btn btn px-10 py-5" />
+                                <input id="myCheckbox6" type="checkbox" aria-label="B2" class="seat-checkbox btn btn px-10 py-5" />
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 gap-5">
+                            <div class="flex gap-10">
+                                <input id="myCheckbox3" type="checkbox" aria-label="A3" class="seat-checkbox btn btn px-10 py-5" />
+                                <input id="myCheckbox4" type="checkbox" aria-label="A4" class="seat-checkbox btn btn px-10 py-5" />
+                            </div>
+                            <div class="flex gap-10">
+                                <input id="myCheckbox7" type="checkbox" aria-label="B3" class="seat-checkbox btn btn px-10 py-5" />
+                                <input id="myCheckbox8" type="checkbox" aria-label="B4" class="seat-checkbox btn btn px-10 py-5">                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- calc & contact -->
+                <div class="grid items-center justify-center">
+                    <!-- calculation -->
+                    <div>
+                        <h1 class="text-2xl font-semibold">Total Cost</h1>
+                        <p>Total selected seats: <span id="totalSeats">0</span></p>
+                        <p>Selected seats: <span id="selectedSeats"></span></p>
+                        <label for="couponCode">Coupon Code:</label>
+                        <input type="text" id="couponCode" placeholder="Enter coupon code">
+                        <button onclick="applyCoupon()" class="btn">Apply Coupon</button>
+                        <p>Total cost: <span id="totalCost">0</span> taka</p>
+                    </div>
+                    <!-- phone number and name section -->
+                    <div class="bg-white rounded-lg mt-20 grid grid-cols-1 justify-center gap-20">
+                        <div>
+                            <div>
+                                <label for="fullName">Passenger Name:</label>
+                                <input type="text" id="fullName" placeholder="Enter your full name">
+                            </div>
+                            <div>
+                                <label for="phoneNumber">Phone Number:*</label>
+                                <input type="tel" id="phoneNumber" placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                        <div>
+                            <button id="nextButton" class="btn btn-wide bg-[#1DD100] text-white" onclick="showModalWithValidation()">Next</button>
+                            <dialog id="my_modal_1" class="modal">
+                                <div class="modal-box">
+                                    <h3 class="font-bold text-lg">Success!</h3>
+                                    <p class="py-4">Thank you for Booking Our Bus Seats. 
+                                        We are working hard to find the best service and deals for you. </p>
+                                    <div class="modal-action">
+                                        <form method="dialog">
+                                            <button class="btn" onclick="my_modal_1.close()">Close</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </dialog>
+                        </div>
+                    </div>
+                </div>               
+            </div>
+        </section>
+    </main>
+    <footer class="p-20 bg-black text-white">
+        <div class="flex justify-between items-center">
+            <div class="grid justify-center gap-3">
+                <h1 class="raleway font-extrabold text-4xl">P-Ticket</h1>
+                <p class="inter">P-Ticket is a digital platform to make your daily commuting better.</p>
+            </div>
+            <div class="grid justify-center gap-3">
+                <h3>Download our app</h3>
+                <img src="./images/gplay.svg" alt="">
+            </div>
+        </div>
+        <div class="flex mt-14 justify-center bg-white">
+            <img src="./images/Line.svg" alt="">
+      
+        </div>
+        <div class="flex items-center justify-between mt-5">
+            <div>
+                <p>@all rights reserved, P-Ticket services limited.2024</p>
+            </div>
+            <div>
+                <a href="">Terms & condition</a>
+                <a href="">Return & refund policy</a>
+                <a href="">Privacy policy</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="./scripts/seatsCount.js"></script>
+</body>
+</html>
